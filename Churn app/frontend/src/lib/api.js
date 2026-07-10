@@ -1,0 +1,31 @@
+"import axios from \"axios\";
+
+const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
+export const API = `${BACKEND_URL}/api`;
+
+export const api = axios.create({ baseURL: API });
+
+export const fetchDashboard = async () => {
+  const { data } = await api.get(\"/churn/dashboard\");
+  return data;
+};
+
+export const loadSample = async () => {
+  const { data } = await api.post(\"/churn/sample\");
+  return data;
+};
+
+export const uploadCsv = async (file) => {
+  const form = new FormData();
+  form.append(\"file\", file);
+  const { data } = await api.post(\"/churn/upload\", form, {
+    headers: { \"Content-Type\": \"multipart/form-data\" },
+  });
+  return data;
+};
+
+export const resetData = async () => {
+  const { data } = await api.delete(\"/churn/reset\");
+  return data;
+};
+"

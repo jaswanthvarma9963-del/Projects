@@ -1,0 +1,134 @@
+{
+  "theme": "light",
+  "typography": {
+    "headings": {
+      "family": "Outfit, sans-serif",
+      "weights": ["500", "600"],
+      "classes": "font-sans tracking-tight"
+    },
+    "body": {
+      "family": "IBM Plex Sans, sans-serif",
+      "weights": ["400", "500"],
+      "classes": "font-sans text-slate-600"
+    },
+    "rules": [
+      "H1 (Dashboard Title): text-2xl sm:text-3xl font-semibold tracking-tight text-slate-900",
+      "H2 (Card/Widget Heading): text-base sm:text-lg font-medium text-slate-800",
+      "Body: text-sm text-slate-600",
+      "Overlines / Labels: Uppercase, text-xs, tracking-[0.05em], text-slate-500 font-medium",
+      "Do NOT use Inter for headings. Use standard system sans or install Outfit/Manrope if preferred."
+    ]
+  },
+  "colors": {
+    "archetype": "Swiss & High-Contrast (SaaS Analytics Variant)",
+    "background": "bg-slate-50",
+    "surface": "bg-white",
+    "text": {
+      "primary": "text-slate-900",
+      "secondary": "text-slate-600",
+      "muted": "text-slate-400"
+    },
+    "accents": {
+      "primary": "bg-indigo-600 hover:bg-indigo-700 text-white",
+      "secondary": "bg-white border border-slate-200 text-slate-700 hover:bg-slate-50",
+      "success": "text-emerald-700 bg-emerald-50 border-emerald-200",
+      "danger": "text-rose-700 bg-rose-50 border-rose-200",
+      "warning": "text-amber-700 bg-amber-50 border-amber-200"
+    },
+    "borders": "border-slate-200",
+    "rules": [
+      "No full-screen gradients. Use flat, clean colors.",
+      "Never use pure black or pure gray. Slate gives a cool, professional tint.",
+      "For interactive elements (buttons), explicitly set hover text color to ensure contrast.",
+      "DO NOT use teal green or teal blue for dashboards."
+    ]
+  },
+  "layouts": {
+    "spacing_system": [
+      "Use generous spacing: p-6 inside KPI cards.",
+      "Gap between widgets: gap-4 or gap-6.",
+      "Dashboard container padding: max-w-7xl mx-auto p-4 sm:p-6 lg:p-8."
+    ],
+    "grid_strategy": "High Density Grid (For Dashboards / Analytics)",
+    "structure": [
+      "Top Header: Dashboard Title (Left) + Actions (Right: 'Load Sample Data' button).",
+      "Row 1: 4 KPI Cards (grid-cols-1 sm:grid-cols-2 lg:grid-cols-4).",
+      "Row 2: Churn Trend Chart (col-span-full lg:col-span-2) + CSV Upload Zone / Summary (col-span-full lg:col-span-1).",
+      "Row 3: Customer Data Table (col-span-full)."
+    ]
+  },
+  "components": {
+    "kpi_cards": {
+      "style": "Flat background, 1px subtle border (border-slate-200), rounded-xl, p-5 bg-white shadow-sm",
+      "interactions": "Hover: -translate-y-0.5, shadow-md, transition-all duration-200 ease-out"
+    },
+    "buttons": {
+      "style": "Rounded-lg font-medium px-4 py-2 transition-colors focus:outline-none focus:ring-2 focus:ring-offset-1",
+      "primary": "bg-indigo-600 text-white hover:bg-indigo-700 focus:ring-indigo-500",
+      "secondary": "bg-white border border-slate-200 text-slate-700 hover:bg-slate-50 focus:ring-slate-200"
+    },
+    "table": {
+      "style": "Clean borders (border-collapse), left-aligned text, w-full text-sm",
+      "headers": "Uppercase, text-xs tracking-wider text-slate-500 bg-slate-50 py-3 px-4 border-y border-slate-200 font-medium",
+      "rows": "border-b border-slate-100 hover:bg-slate-50/50 transition-colors",
+      "cells": "py-3 px-4"
+    },
+    "badges": {
+      "style": "inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium border",
+      "low_risk": "bg-emerald-50 text-emerald-700 border-emerald-200",
+      "medium_risk": "bg-amber-50 text-amber-700 border-amber-200",
+      "high_risk": "bg-rose-50 text-rose-700 border-rose-200"
+    },
+    "file_upload": {
+      "style": "border-2 border-dashed border-slate-300 rounded-xl p-8 text-center hover:border-indigo-400 hover:bg-indigo-50/30 transition-colors cursor-pointer bg-white",
+      "icon": "Lucide UploadCloud, size 32, text-indigo-500 mx-auto mb-4"
+    },
+    "chart": {
+      "library": "recharts",
+      "style": "AreaChart or LineChart. Clean grid lines (stroke-dasharray 3 3, stroke slate-100). Custom tooltip with rounded borders and shadow. Line color: Indigo-500 (Retention), Rose-500 (Churn)."
+    }
+  },
+  "motion": {
+    "rules": [
+      "Hover states on all interactive elements (buttons, rows, cards, upload zone).",
+      "Simple fade-in for empty states replacing content.",
+      "Respect prefers-reduced-motion."
+    ]
+  },
+  "accessibility": {
+    "rules": [
+      "All interactive elements MUST have data-testid attributes (e.g., data-testid='upload-csv-btn', data-testid='load-sample-btn', data-testid='kpi-card').",
+      "Ensure text contrast meets 4.5:1 ratio.",
+      "Buttons need clear focus states (ring-2).",
+      "Add aria-labels to chart containers and empty state illustrations."
+    ]
+  },
+  "visual_enhancers": {
+    "icons": "Use 'lucide-react' for clean, consistent line icons (UploadCloud, Users, ArrowUpRight, ArrowDownRight, AlertCircle).",
+    "empty_state": "When no data is loaded, show a prominent central upload zone with an icon, descriptive text, and a 'Load Sample Data' button to instantly populate the dashboard."
+  },
+  "instructions_to_main_agent": [
+    "Build a single-page React dashboard using Tailwind CSS.",
+    "Implement a mock data generator or a 'Load Sample Data' button that populates the state instantly (vital for resume/interview demos).",
+    "Render 4 KPI cards: Total Customers, Churn Rate (%), Retention Rate (%), At-Risk Customers.",
+    "Render a Chart (Recharts) showing monthly churn vs retention trends.",
+    "Render a Customer Data Table with columns: ID, Name, Last Active, MRR, Risk Score (Low/Medium/High badge).",
+    "Create a clean empty state before data is loaded.",
+    "Ensure the design feels like a premium SaaS product (e.g., Stripe or Vercel style) - crisp borders, soft shadows, plenty of whitespace.",
+    "DO NOT use generic centered text alignment for the main layout.",
+    "Include data-testid attributes on key elements for automated testing."
+  ],
+  "UNIVERSAL_GUIDELINES_FOR_MAIN_AGENT": [
+    "You tend to converge toward generic, 'on distribution' outputs. Avoid this by focusing on optical alignment and refined spacing.",
+    "Create depth through layered design elements with z-index hierarchy and subtle shadows.",
+    "Do NOT apply universal transition (transition: all). Use specific transitions (e.g., transition-colors, transition-transform).",
+    "Do NOT center align the app container (.App { text-align: center; }).",
+    "Use modern button styles with interaction animations (hover lift).",
+    "Never use AI assistant emoji characters for icons. Use lucide-react.",
+    "Every interaction needs micro-animations.",
+    "Use 2-3x more spacing than feels comfortable. Cramped designs look cheap.",
+    "Missing categories = main agent will use placeholder text which is FORBIDDEN.",
+    "Prioritize using pre-existing components from src/components/ui when applicable.",
+    "Use sonner for toasts if notification feedback is needed."
+  ]
+}

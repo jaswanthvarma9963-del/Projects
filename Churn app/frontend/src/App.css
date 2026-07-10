@@ -1,0 +1,7 @@
+"/* Global app-level styles. Avoid center-align defaults. */
+.App {
+  min-height: 100vh;
+  background: #f8fafc; /* slate-50 */
+  color: #0f172a; /* slate-900 */
+}
+"

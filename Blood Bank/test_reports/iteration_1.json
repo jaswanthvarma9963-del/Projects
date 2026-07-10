@@ -1,0 +1,23 @@
+{
+  "summary": "First-finish smoke test of LifeStream Blood Bank app (React + FastAPI + Mongo). Backend endpoints (stats, donors GET/POST with filters, requests POST, contact POST) all return 200 with valid payloads. Frontend E2E covered Home, Register (new donor persisted), Find Blood (filter by city returned the just-registered donor with correct count), Donors directory (table lists new donor), Request Blood (success toast shown), and Contact (submit ok). Persistence verified: donor registered via UI became searchable immediately.",
+  "tested_scope": ["frontend", "backend", "integration"],
+  "passed": [
+    "GET /api/stats returns total_donors=12+, cities_covered=9",
+    "GET /api/donors?blood_group=O+&city=Mumbai returns matching seeded donors",
+    "POST /api/donors, /api/requests, /api/contact all return 200 with generated id",
+    "Home page loads with hero, stats banner and CTAs",
+    "Register form submits and success toast; donor persists",
+    "Find Blood filter by city returns 1 donor found (new donor visible)",
+    "Donors directory table shows newly registered donor",
+    "Request Blood shows success toast 'Request submitted!'",
+    "Contact form submits successfully",
+    "Navbar navigation between routes works"
+  ],
+  "failed": [],
+  "action_items": [],
+  "success_rate": {"backend": "100%", "frontend": "100%"},
+  "retest_needed": false,
+  "full_testing_deferred": true,
+  "notes": "Urgency dropdown options are Normal/Urgent/Critical (not High). Only Normal/Urgent/Critical are valid choices."
+}
+

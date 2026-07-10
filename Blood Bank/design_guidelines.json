@@ -1,0 +1,96 @@
+{
+  "theme": {
+    "mode": "light",
+    "primary_concept": "High-Contrast Swiss Medical - A fusion of clinical cleanliness with bold typography and organic deep crimson accents. It must look trustworthy, modern, and highly polished for a job interview portfolio."
+  },
+  "typography": {
+    "headings": {
+      "font": "Outfit",
+      "weights": ["300", "500", "700"],
+      "styling": "tracking-tight, high contrast. Use font-light for large headings and font-bold for emphasis."
+    },
+    "body": {
+      "font": "Manrope",
+      "weights": ["400", "500"],
+      "styling": "leading-relaxed, tracking-normal"
+    },
+    "scale": {
+      "h1": "text-5xl sm:text-6xl md:text-7xl",
+      "h2": "text-4xl sm:text-5xl",
+      "h3": "text-2xl sm:text-3xl",
+      "body": "text-base sm:text-lg"
+    }
+  },
+  "colors": {
+    "primary": "#b91c1c",
+    "primary_hover": "#991b1b",
+    "background": "#ffffff",
+    "surface": "#f5f5f4",
+    "surface_alt": "#fafaf9",
+    "text_main": "#1c1917",
+    "text_muted": "#57534e",
+    "border": "#e7e5e4",
+    "accent": "#fee2e2"
+  },
+  "layouts": {
+    "container": "max-w-7xl mx-auto px-6 md:px-12 lg:px-24",
+    "hero": "min-h-[80vh] flex flex-col justify-center bg-surface relative overflow-hidden",
+    "grid": "grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12",
+    "bento": "grid grid-cols-1 md:grid-cols-3 gap-6"
+  },
+  "components": {
+    "buttons": "Pill-shaped (rounded-full), bold text, transition-transform hover:-translate-y-1 hover:shadow-lg active:translate-y-0. Primary: bg-[#b91c1c] text-white. Secondary: bg-white text-[#1c1917] border border-[#e7e5e4].",
+    "cards": "Flat solid surfaces (bg-white), 1px subtle border (border-[#e7e5e4]), no default shadow. On hover: slight lift (-translate-y-1) and shadow-lg.",
+    "forms": "Use standard Shadcn forms but customize inputs to have bg-[#f5f5f4], rounded-lg, focus:ring-[#b91c1c] focus:border-[#b91c1c].",
+    "header": "Crystal Glassmorphism: backdrop-blur-xl bg-white/80 sticky top-0 z-50 border-b border-[#e7e5e4]/50."
+  },
+  "motion": {
+    "hover": "transition-all duration-300 ease-out",
+    "entrance": "Fade in and slide up (framer-motion initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }})",
+    "stagger": "Delay child animations by 0.1s for lists."
+  },
+  "image_urls": {
+    "hero_abstract": {
+      "url": "https://images.unsplash.com/photo-1708797851367-202c252c31f1",
+      "description": "Abstract red liquid waves - use as a subtle, low-opacity background texture or banner image in the hero section."
+    },
+    "hero_main": {
+      "url": "https://images.unsplash.com/photo-1624727828489-a1e03b79bba8?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1MDZ8MHwxfHNlYXJjaHwyfHxoZWFsdGhjYXJlJTIwcHJvZmVzc2lvbmFsJTIwY2FyaW5nfGVufDB8fHx8MTc4MzY2NTMyN3ww&ixlib=rb-4.1.0&q=85",
+      "description": "Woman holding heart shaped stethoscope - represents care and life."
+    },
+    "donation_process": {
+      "url": "https://images.pexels.com/photos/37553374/pexels-photo-37553374.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "description": "Men donating blood - use in the 'Become a Donor' or 'About' section."
+    },
+    "medical_consult": {
+      "url": "https://images.unsplash.com/photo-1666886573531-48d2e3c2b684?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1MDZ8MHwxfHNlYXJjaHwzfHxoZWFsdGhjYXJlJTIwcHJvZmVzc2lvbmFsJTIwY2FyaW5nfGVufDB8fHx8MTc4MzY2NTMyN3ww&ixlib=rb-4.1.0&q=85",
+      "description": "Doctor showing tablet - use in the 'Request Blood' or 'Search Blood' section."
+    }
+  },
+  "instructions_to_main_agent": [
+    "Add fonts via Google Fonts in index.css: @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500&family=Outfit:wght@300;500;700&display=swap');",
+    "Apply 'Outfit' to headings and 'Manrope' to body globally in tailwind configuration.",
+    "Implement the landing page with a clear Hero section, a statistics banner, and an 'Action' bento grid mapping to the 3 main user paths: Register as Donor, Search/Find Blood, Request Blood.",
+    "For the 'Search/Find Blood' feature, create a clean form with Blood Group and City dropdowns, followed by a list/grid of dummy donor results.",
+    "For 'Request Blood' and 'Become a Donor', create elegant forms using Shadcn UI. Style inputs with a solid light gray background and subtle borders.",
+    "Include an 'Admin-style list of donors' section on a separate route or a prominent section on the homepage, displaying donors in a dense, clean Shadcn Table.",
+    "The header MUST have a navigation bar linking to Home, Find Blood, Request Blood, Register, Contact, and Donors. It must use a Crystal Glassmorphism effect.",
+    "Use Lucide-React for all icons. Icons should be crisp and stroke-width 1.5.",
+    "Add 'data-testid' attributes to all interactive elements for testing.",
+    "Do NOT use 'Inter' for headings. Do NOT center-align massive blocks of text.",
+    "The overall vibe should be highly professional, suited for a job interview portfolio, showing strong mastery of white space, layout asymmetry, and color discipline."
+  ],
+  "UNIVERSAL_GUIDELINES_FOR_MAIN_AGENT": [
+    "Do not converge toward generic 'AI slop' outputs.",
+    "Create depth through layered design elements with z-index hierarchy.",
+    "Use glass-morphism effects with backdrop filters.",
+    "DO NOT apply universal transitions (e.g., transition: all). Add transitions to specific properties like transform and opacity.",
+    "DO NOT center align the app container in App.css.",
+    "Always use modern button styles like pill-shaped.",
+    "Never use AI assistant Emojis for icons.",
+    "Every interaction needs micro-animations - hover states, transitions, entrance animations.",
+    "Use generous spacing (2-3x more than usual) to prevent a cramped look."
+  ],
+  "component_path": "/app/frontend/src/components"
+}
+
